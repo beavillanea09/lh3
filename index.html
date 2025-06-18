@@ -62,11 +62,6 @@
             100% { box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); }
         }
 
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
         /* Header/Hero Section */
         .hero {
             background: var(--primary-dark); /* Dark green background */
@@ -295,19 +290,16 @@
             padding-bottom: 20px;
         }
 
-        .carousel-wrapper {
+        /* Modified carousel-wrapper and image-carousel-wrapper */
+        .carousel-wrapper, .image-carousel-wrapper {
             display: flex;
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding-bottom: 10px;
+            overflow-x: scroll; /* Keep scroll for initial content measurement */
+            scrollbar-width: none; /* Hide scrollbar for Firefox */
+            -ms-overflow-style: none;  /* Hide scrollbar for IE/Edge */
         }
 
-        .carousel-wrapper::-webkit-scrollbar {
-            display: none;
+        .carousel-wrapper::-webkit-scrollbar, .image-carousel-wrapper::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari, Opera */
         }
 
         .testimonial-card {
@@ -359,38 +351,6 @@
             color: var(--primary-dark); /* Dark green text */
         }
 
-        .carousel-nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            transform: translateY(-50%);
-            pointer-events: none;
-        }
-
-        .carousel-button {
-            background-color: rgba(46, 108, 59, 0.7); /* Dark green semi-transparent */
-            color: var(--text-light); /* White text */
-            border: none;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            font-size: 1.8em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            z-index: 10;
-            pointer-events: all;
-            user-select: none;
-        }
-
-        .carousel-button:hover {
-            background-color: var(--primary-dark); /* Darker green on hover */
-        }
-
         /* Image Carousel Specific Styles */
         .image-carousel-section {
             background-color: var(--light-bg);
@@ -405,22 +365,6 @@
             color: var(--primary-dark);
             margin-bottom: 30px;
             font-size: 2em;
-        }
-
-        .image-carousel-wrapper {
-            display: flex;
-            overflow-x: scroll;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding-bottom: 10px;
-            margin-bottom: 20px; /* Space for nav buttons */
-        }
-
-        .image-carousel-wrapper::-webkit-scrollbar {
-            display: none;
         }
 
         .image-carousel-item {
@@ -448,13 +392,6 @@
             font-size: 1em;
             color: var(--text-dark);
             margin: 0;
-        }
-
-        .image-carousel-nav-buttons {
-            display: flex;
-            justify-content: center; /* Center buttons below carousel */
-            gap: 20px;
-            margin-top: 20px;
         }
 
         /* New section for the "No Pressure" quote */
@@ -800,7 +737,7 @@
             font-size: 1.8em; /* Slightly larger headline */
             color: var(--primary-dark);
             margin-top: 0;
-            margin-bottom: 25px; /* More space below headline */
+            margin-bottom: 25px;
             text-align: center; /* Center the headline */
             font-family: 'Montserrat', sans-serif; /* Use Montserrat for section headline */
         }
@@ -1167,19 +1104,8 @@
             .coach-profile {
                 flex-direction: column;
             }
-            .carousel-nav-buttons, .image-carousel-nav-buttons {
-                top: auto;
-                bottom: 0px;
-                transform: none;
-                position: relative;
-                margin-top: 10px;
-                padding: 0 20px;
-            }
-            .carousel-button#prevBtn, .carousel-button#nextBtn,
-            .image-carousel-button {
-                margin-left: 0;
-                margin-right: 0;
-            }
+            /* .carousel-nav-buttons, .image-carousel-nav-buttons are removed */
+            /* .carousel-button, .image-carousel-button are removed */
 
             .section-main-headline {
                 font-size: 2em;
@@ -1279,7 +1205,7 @@
         <div class="container">
             <h1>Ready to Master Your Golf Mindset?</h1>
             <h2>Book Your FREE Strategy Call Now – Limited Slots Available This Month!</h2>
-            <p class="intro-text">Build confidence, connection & consistency <strong>without spending hours on the range</strong>! This 30-minute call is your first step towards becoming a truly Connected Golfer.</p>
+            <p class="intro-text">Build confidence, connection & consistency without spending hours on the range! This 30-minute call is your first step towards becoming a truly Connected Golfer.</p>
 
             <!-- DUPLICATED CENTRAL URGENCY CARD IN HERO SECTION -->
             <div class="central-urgency-card">
@@ -1378,13 +1304,11 @@
                         <cite>- Lisa M., Golf Enthusiast</cite>
                     </div>
                 </div>
-                <div class="carousel-nav-buttons">
-                    <button id="prevBtn" class="carousel-button">‹</button>
-                    <button id="nextBtn" class="carousel-button">›</button>
-                </div>
+                <!-- Nav buttons removed for continuous scroll -->
             </div>
         </section>
 
+        
         <!-- NEW SECTION: Image Carousel -->
         <section class="image-carousel-section">
             <div class="container">
@@ -1432,14 +1356,10 @@
                             <p>Confident approach to every shot.</p>
                         </div>
                     </div>
-                    <div class="image-carousel-nav-buttons">
-                        <button id="imagePrevBtn" class="carousel-button">‹</button>
-                        <button id="imageNextBtn" class="carousel-button">›</button>
-                    </div>
+                    <!-- Nav buttons removed for continuous scroll -->
                 </div>
             </div>
-
-
+            
         <!-- New CTA added directly after testimonials -->
         <div class="cta-after-testimonials">
             <h2 class="section-main-headline">You, too, can achieve this level of success!</h2>
@@ -1520,36 +1440,36 @@
                             <h4>What You'll Get in Your Free Call:</h4>
                             <ul>
                                 <li>
-                                    <span class="icon-circle"><i class="fas fa-magnifying-glass"></i></span> <!-- Font Awesome Icon -->
+                                    <span class="icon-circle"><i class="fas fa-magnifying-glass"></i></span>
                                     <div>
-                                        <h5>Game Assessment</h5>
-                                        <p>Identify exactly where mental blocks or operational tasks are hindering your on-course performance. <span class="value-text">($497 Value)</span></p>
+                                        <h5>Game Assessment<span class="value-text">($497 Value)</span></h5>
+                                        <p>Pinpoint mental blocks holding you back. </p>
                                     </div>
                                 </li>
                                 <li>
-                                    <span class="icon-circle"><i class="fas fa-bullseye"></i></span> <!-- Font Awesome Icon -->
+                                    <span class="icon-circle"><i class="fas fa-bullseye"></i></span>
                                     <div>
-                                        <h5>Custom Strategy</h5>
-                                        <p>Receive a personalized plan to reclaim control over your game and elevate your performance. <span class="value-text">($997 Value)</span></p>
+                                        <h5>Custom Strategy<span class="value-text">($997 Value)</span></h5>
+                                        <p>Get a personalized plan to elevate your game. </p>
                                     </div>
                                 </li>
                                 <li>
-                                    <span class="icon-circle"><i class="fas fa-chart-line"></i></span> <!-- Font Awesome Icon -->
+                                    <span class="icon-circle"><i class="fas fa-chart-line"></i></span>
                                     <div>
-                                        <h5>Growth Roadmap</h5>
-                                        <p>Get a clear path to accelerate consistent improvement and lower your scores. <span class="value-text">($797 Value)</span></p>
+                                        <h5>Growth Roadmap<span class="value-text">($797 Value)</span></h5>
+                                        <p>Clear steps for consistent improvement. </p>
                                     </div>
                                 </li>
                                 <li>
-                                    <span class="icon-circle"><i class="fas fa-gift"></i></span> <!-- Font Awesome Icon -->
+                                    <span class="icon-circle"><i class="fas fa-gift"></i></span>
                                     <div>
-                                        <h5>Bonus Resource</h5>
-                                        <p>A free guide to leveraging your mental game for peak golf performance. <span class="value-text">($147 Value)</span></p>
+                                        <h5>Bonus Resource<span class="value-text">($147 Value)</span></h5>
+                                        <p>A free guide for peak golf performance. </p>
                                     </div>
                                 </li>
                             </ul>
                             <div class="total-value-text">
-                                Total Value: <span class="value">$2,438</span>
+                                Total Value: <strong><span class="value">$2,438</span></strong>
                                 <span class="free-emphasis">GET ALL THIS FOR FREE!</span>
                             </div>
                         </div>
@@ -1583,7 +1503,7 @@
 
                             <p class="contact-info">
                                 <span class="icon">✉️</span> support@theconnectedgolfer.com <br>
-                                <span class="icon">🗓️</span> Available Mon-Fri, 2PM-6PM Your Time <br>
+                                <span class="icon">🗓️</span> Available Mon-Fri, 9AM-6PM Your Time <br>
                                 <span class="icon">📍</span> Based in Miami, Florida, Flexible Schedule
                             </p>
                         </div>
@@ -1607,8 +1527,7 @@
                     </div>
                     <div class="live-booking-counter" id="live-booking-counter-middle">
                         <span class="icon">✅</span>
-                        <span id="full-booking-message-middle">
-                            <span id="booking-count-number-middle">8</span> <strong>people have booked a call in the last 48 hours!</strong>
+                        <span id="booking-count-number-middle">8</span> <strong>people have booked a call in the last 48 hours!</strong>
                         </span>
                     </div>
                 </div>
@@ -1764,158 +1683,64 @@
             
             // --- Testimonial Carousel Logic ---
             const testimonialCarousel = document.getElementById('testimonialCarousel');
-            const testimonialPrevBtn = document.getElementById('prevBtn');
-            const testimonialNextBtn = document.getElementById('nextBtn');
-            const testimonialCardWidth = 300 + 20; // Card width + right margin
+            // Ensure testimonialCarousel exists and has children before calculating offsetWidth
+            const testimonialCardWidth = testimonialCarousel && testimonialCarousel.children.length > 0 ? 
+                                         testimonialCarousel.children[0].offsetWidth + parseInt(window.getComputedStyle(testimonialCarousel.children[0]).marginRight) : 0;
             let testimonialInterval;
 
-            // Function to scroll testimonials
-            function scrollTestimonials() {
-                if (testimonialCarousel.scrollLeft + testimonialCarousel.clientWidth >= testimonialCarousel.scrollWidth) {
-                    testimonialCarousel.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back to start
-                } else {
-                    testimonialCarousel.scrollBy({ left: testimonialCardWidth, behavior: 'smooth' });
+            // Function to scroll testimonials leftwards
+            function scrollTestimonialsLeft() {
+                // If we've scrolled past the beginning of the first set of duplicated content,
+                // instantly jump back to the equivalent position in the second set.
+                if (testimonialCarousel.scrollLeft <= testimonialCardWidth) { // Check if we're near the start of the first set
+                    testimonialCarousel.scrollLeft += (testimonialCarousel.scrollWidth / 2) - testimonialCarousel.clientWidth; // Jump to the equivalent point in the duplicated content
                 }
-            }
-
-            // Start auto-scrolling
-            function startTestimonialAutoScroll() {
-                clearInterval(testimonialInterval); // Clear any existing interval
-                testimonialInterval = setInterval(scrollTestimonials, 5000); // Scroll every 5 seconds
-            }
-
-            // Stop auto-scrolling
-            function stopTestimonialAutoScroll() {
-                clearInterval(testimonialInterval);
-            }
-
-            if (testimonialCarousel && testimonialPrevBtn && testimonialNextBtn) { // Ensure elements exist
-                testimonialNextBtn.addEventListener('click', () => {
-                    stopTestimonialAutoScroll(); // Stop on manual interaction
-                    scrollTestimonials();
-                    startTestimonialAutoScroll(); // Resume auto-scroll after a delay
+                testimonialCarousel.scrollBy({
+                    left: -testimonialCardWidth,
+                    behavior: 'smooth'
                 });
-
-                testimonialPrevBtn.addEventListener('click', () => {
-                    stopTestimonialAutoScroll(); // Stop on manual interaction
-                    testimonialCarousel.scrollBy({
-                        left: -testimonialCardWidth,
-                        behavior: 'smooth'
-                    });
-                    startTestimonialAutoScroll(); // Resume auto-scroll after a delay
-                });
-
-                // Pause on hover, resume on mouse leave
-                testimonialCarousel.addEventListener('mouseenter', stopTestimonialAutoScroll);
-                testimonialCarousel.addEventListener('mouseleave', startTestimonialAutoScroll);
-
-                // Optional: Hide/show buttons based on scroll position
-                testimonialCarousel.addEventListener('scroll', () => {
-                    // Hide prev button if at the beginning
-                    if (testimonialCarousel.scrollLeft === 0) {
-                        testimonialPrevBtn.style.visibility = 'hidden';
-                    } else {
-                        testimonialPrevBtn.style.visibility = 'visible';
-                    }
-
-                    // Hide next button if at the end
-                    if (testimonialCarousel.scrollLeft + testimonialCarousel.clientWidth >= testimonialCarousel.scrollWidth) {
-                        testimonialNextBtn.style.visibility = 'hidden';
-                    } else {
-                        testimonialNextBtn.style.visibility = 'visible';
-                    }
-                });
-
-                // Initial check for button visibility on load
-                // (Timeout to ensure content has rendered and scrollWidth is accurate)
-                setTimeout(() => {
-                    if (testimonialCarousel.scrollWidth <= testimonialCarousel.clientWidth) {
-                        // If all cards fit without scrolling, hide both buttons
-                        testimonialPrevBtn.style.display = 'none';
-                        testimonialNextBtn.style.display = 'none';
-                    } else {
-                        // Otherwise, ensure next is visible and prev is hidden (at start)
-                        testimonialPrevBtn.style.visibility = 'hidden';
-                        testimonialNextBtn.style.visibility = 'visible';
-                        startTestimonialAutoScroll(); // Start auto-scroll if content overflows
-                    }
-                }, 100); // Small delay
             }
+
+            // Start auto-scrolling for testimonials
+            setTimeout(() => {
+                if (testimonialCarousel && testimonialCarousel.scrollWidth > testimonialCarousel.clientWidth) {
+                    // Duplicate content for smoother infinite scroll effect
+                    testimonialCarousel.innerHTML += testimonialCarousel.innerHTML;
+                    testimonialCarousel.scrollLeft = testimonialCarousel.scrollWidth / 2; // Start in the middle of duplicated content
+                    testimonialInterval = setInterval(scrollTestimonialsLeft, 2000); // Scroll every 2 seconds
+                }
+            }, 100); // Small delay
+
 
             // --- Image Carousel Logic ---
             const imageCarousel = document.getElementById('imageCarousel');
-            const imagePrevBtn = document.getElementById('imagePrevBtn');
-            const imageNextBtn = document.getElementById('imageNextBtn');
-            const imageCardWidth = 280 + 20; // Image width + right margin
+            // Ensure imageCarousel exists and has children before calculating offsetWidth
+            const imageCardWidth = imageCarousel && imageCarousel.children.length > 0 ? 
+                                   imageCarousel.children[0].offsetWidth + parseInt(window.getComputedStyle(imageCarousel.children[0]).marginRight) : 0;
             let imageInterval;
 
-            // Function to scroll images
-            function scrollImages() {
-                if (imageCarousel.scrollLeft + imageCarousel.clientWidth >= imageCarousel.scrollWidth) {
-                    imageCarousel.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back to start
-                } else {
-                    imageCarousel.scrollBy({ left: imageCardWidth, behavior: 'smooth' });
+            // Function to scroll images leftwards
+            function scrollImagesLeft() {
+                // If we've scrolled past the beginning of the first set of duplicated content,
+                // instantly jump back to the equivalent position in the second set.
+                if (imageCarousel.scrollLeft <= imageCardWidth) { // Check if we're near the start of the first set
+                    imageCarousel.scrollLeft += (imageCarousel.scrollWidth / 2) - imageCarousel.clientWidth; // Jump to the equivalent point in the duplicated content
                 }
-            }
-
-            // Start auto-scrolling
-            function startImageAutoScroll() {
-                clearInterval(imageInterval); // Clear any existing interval
-                imageInterval = setInterval(scrollImages, 4000); // Scroll every 4 seconds
-            }
-
-            // Stop auto-scrolling
-            function stopImageAutoScroll() {
-                clearInterval(imageInterval);
-            }
-
-            if (imageCarousel && imagePrevBtn && imageNextBtn) {
-                imageNextBtn.addEventListener('click', () => {
-                    stopImageAutoScroll(); // Stop on manual interaction
-                    scrollImages();
-                    startImageAutoScroll(); // Resume auto-scroll after a delay
+                imageCarousel.scrollBy({
+                    left: -imageCardWidth,
+                    behavior: 'smooth'
                 });
-
-                imagePrevBtn.addEventListener('click', () => {
-                    stopImageAutoScroll(); // Stop on manual interaction
-                    imageCarousel.scrollBy({
-                        left: -imageCardWidth,
-                        behavior: 'smooth'
-                    });
-                    startImageAutoScroll(); // Resume auto-scroll after a delay
-                });
-
-                // Pause on hover, resume on mouse leave
-                imageCarousel.addEventListener('mouseenter', stopImageAutoScroll);
-                imageCarousel.addEventListener('mouseleave', startImageAutoScroll);
-
-                // Optional: Hide/show buttons based on scroll position
-                imageCarousel.addEventListener('scroll', () => {
-                    if (imageCarousel.scrollLeft === 0) {
-                        imagePrevBtn.style.visibility = 'hidden';
-                    } else {
-                        imagePrevBtn.style.visibility = 'visible';
-                    }
-
-                    if (imageCarousel.scrollLeft + imageCarousel.clientWidth >= imageCarousel.scrollWidth) {
-                        imageNextBtn.style.visibility = 'hidden';
-                    } else {
-                        imageNextBtn.style.visibility = 'visible';
-                    }
-                });
-
-                // Initial check for button visibility on load
-                setTimeout(() => {
-                    if (imageCarousel.scrollWidth <= imageCarousel.clientWidth) {
-                        imagePrevBtn.style.display = 'none';
-                        imageNextBtn.style.display = 'none';
-                    } else {
-                        imagePrevBtn.style.visibility = 'hidden';
-                        imageNextBtn.style.visibility = 'visible';
-                        startImageAutoScroll(); // Start auto-scroll if content overflows
-                    }
-                }, 100);
             }
+
+            // Start auto-scrolling for images
+            setTimeout(() => {
+                if (imageCarousel && imageCarousel.scrollWidth > imageCarousel.clientWidth) {
+                    // Duplicate content for smoother infinite scroll effect
+                    imageCarousel.innerHTML += imageCarousel.innerHTML;
+                    imageCarousel.scrollLeft = imageCarousel.scrollWidth / 2; // Start in the middle of duplicated content
+                    imageInterval = setInterval(scrollImagesLeft, 2000); // Scroll every 2 seconds
+                }
+            }, 100);
         });
     </script>
 </body>
