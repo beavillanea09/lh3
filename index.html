@@ -1204,9 +1204,7 @@
     <header class="hero">
         <div class="container">
             <h1>Ready to Master Your Golf Mindset?</h1>
-            <h2>Book Your FREE Strategy Call Now – Limited Slots Available This Month!</h2>
             <p class="intro-text">Build confidence, connection & consistency without spending hours on the range! This 30-minute call is your first step towards becoming a truly Connected Golfer.</p>
-
             <!-- DUPLICATED CENTRAL URGENCY CARD IN HERO SECTION -->
             <div class="central-urgency-card">
                 <p class="scarcity-message">
@@ -1703,7 +1701,7 @@
                     // Duplicate content for smoother infinite scroll effect
                     testimonialCarousel.innerHTML += testimonialCarousel.innerHTML;
                     testimonialCarousel.scrollLeft = testimonialCarousel.scrollWidth / 2; // Start in the middle of duplicated content
-                    testimonialInterval = setInterval(scrollTestimonialsLeft, 2000); // Scroll every 2 seconds
+                    testimonialInterval = setInterval(scrollTestimonialsLeft, 5000); // Scroll every 5 seconds
                 }
             }, 100); // Small delay
 
@@ -1734,7 +1732,7 @@
                     // Duplicate content for smoother infinite scroll effect
                     imageCarousel.innerHTML += imageCarousel.innerHTML;
                     imageCarousel.scrollLeft = imageCarousel.scrollWidth / 2; // Start in the middle of duplicated content
-                    imageInterval = setInterval(scrollImagesLeft, 2000); // Scroll every 2 seconds
+                    imageInterval = setInterval(scrollImagesLeft, 5000); // Scroll every 5 seconds
                 }
             }, 100);
         });
