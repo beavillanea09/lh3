@@ -1681,7 +1681,7 @@
                 // If we've scrolled past the beginning of the first set of duplicated content,
                 // instantly jump back to the equivalent position in the second set.
                 if (testimonialCarousel.scrollLeft <= testimonialCardWidth) { // Check if we're near the start of the first set
-                    testimonialCarousel.scrollLeft += (testimonialCarousel.scrollWidth / 2) - testimonialCarousel.clientWidth; // Jump to the equivalent point in the duplicated content
+                    testimonialCarousel.scrollLeft += (testimonialCarousel.scrollWidth / 5) - testimonialCarousel.clientWidth; // Jump to the equivalent point in the duplicated content
                 }
                 testimonialCarousel.scrollBy({
                     left: -testimonialCardWidth,
@@ -1694,8 +1694,8 @@
                 if (testimonialCarousel && testimonialCarousel.scrollWidth > testimonialCarousel.clientWidth) {
                     // Duplicate content for smoother infinite scroll effect
                     testimonialCarousel.innerHTML += testimonialCarousel.innerHTML;
-                    testimonialCarousel.scrollLeft = testimonialCarousel.scrollWidth / 2; // Start in the middle of duplicated content
-                    testimonialInterval = setInterval(scrollTestimonialsLeft, 2000); // Scroll every 2 seconds
+                    testimonialCarousel.scrollLeft = testimonialCarousel.scrollWidth / 5; // Start in the middle of duplicated content
+                    testimonialInterval = setInterval(scrollTestimonialsLeft, 5000); // Scroll every 2 seconds
                 }
             }, 100); // Small delay
 
@@ -1712,7 +1712,7 @@
                 // If we've scrolled past the beginning of the first set of duplicated content,
                 // instantly jump back to the equivalent position in the second set.
                 if (imageCarousel.scrollLeft <= imageCardWidth) { // Check if we're near the start of the first set
-                    imageCarousel.scrollLeft += (imageCarousel.scrollWidth / 2) - imageCarousel.clientWidth; // Jump to the equivalent point in the duplicated content
+                    imageCarousel.scrollLeft += (imageCarousel.scrollWidth / 5) - imageCarousel.clientWidth; // Jump to the equivalent point in the duplicated content
                 }
                 imageCarousel.scrollBy({
                     left: -imageCardWidth,
@@ -1725,8 +1725,8 @@
                 if (imageCarousel && imageCarousel.scrollWidth > imageCarousel.clientWidth) {
                     // Duplicate content for smoother infinite scroll effect
                     imageCarousel.innerHTML += imageCarousel.innerHTML;
-                    imageCarousel.scrollLeft = imageCarousel.scrollWidth / 2; // Start in the middle of duplicated content
-                    imageInterval = setInterval(scrollImagesLeft, 2000); // Scroll every 2 seconds
+                    imageCarousel.scrollLeft = imageCarousel.scrollWidth / 5; // Start in the middle of duplicated content
+                    imageInterval = setInterval(scrollImagesLeft, 5000); // Scroll every 5 seconds
                 }
             }, 100);
         });
