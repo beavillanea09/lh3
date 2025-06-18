@@ -1695,7 +1695,7 @@
                     // Duplicate content for smoother infinite scroll effect
                     testimonialCarousel.innerHTML += testimonialCarousel.innerHTML;
                     testimonialCarousel.scrollLeft = testimonialCarousel.scrollWidth / 2; // Start in the middle of duplicated content
-                    testimonialInterval = setInterval(scrollTestimonialsLeft, 5000); // Scroll every 5 seconds
+                    testimonialInterval = setInterval(scrollTestimonialsLeft, 2000); // Scroll every 2 seconds
                 }
             }, 100); // Small delay
 
@@ -1726,7 +1726,7 @@
                     // Duplicate content for smoother infinite scroll effect
                     imageCarousel.innerHTML += imageCarousel.innerHTML;
                     imageCarousel.scrollLeft = imageCarousel.scrollWidth / 2; // Start in the middle of duplicated content
-                    imageInterval = setInterval(scrollImagesLeft, 5000); // Scroll every 5 seconds
+                    imageInterval = setInterval(scrollImagesLeft, 2000); // Scroll every 2 seconds
                 }
             }, 100);
         });
